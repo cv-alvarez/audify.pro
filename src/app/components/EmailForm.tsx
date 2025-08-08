@@ -1,22 +1,24 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import styles from "../page.module.css"; // o crea uno nuevo si prefieres
+import { useState } from 'react';
+import styles from '../Home.module.css';
 
 export default function EmailForm() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí podrías enviar a Firestore o una API
+    // Aquí podrías enviar a Firestore, Mailchimp o tu backend
     setSubmitted(true);
   };
 
   return (
     <div className={styles.formContainer}>
       {submitted ? (
-        <p>¡Gracias por suscribirte! Te avisaremos pronto.</p>
+        <p className={styles.confirmation}>
+          ✅ ¡Gracias por suscribirte! Te avisaremos muy pronto.
+        </p>
       ) : (
         <form onSubmit={handleSubmit} className={styles.form}>
           <input

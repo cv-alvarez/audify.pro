@@ -1,7 +1,13 @@
-// src/app/page.tsx
-import Image from "next/image";
-import styles from "./Home.module.css";
-import EmailForm from "./components/EmailForm";
+import styles from './Home.module.css';
+import EmailForm from './components/EmailForm';
+import SimulacionDemo from './components/SimulacionDemo';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faGraduationCap,
+  faBriefcase,
+  faMicrophone,
+  faChalkboardTeacher
+} from '@fortawesome/free-solid-svg-icons';
 
 export const metadata = {
   title: 'Audify: Convierte audios en resúmenes claros',
@@ -26,88 +32,111 @@ export const metadata = {
 export default function Home() {
   return (
     <main className={styles.main}>
+      {/* HERO */}
       <section className={styles.hero}>
-        <h1 className={styles.title}>Audify: Convierte audios en resúmenes claros</h1>
+        <h1 className={styles.title}>
+          Convierte tus audios en resúmenes claros con IA
+        </h1>
         <p className={styles.subtitle}>
-          Sube grabaciones de reuniones, clases o entrevistas y obtén un resumen preciso, organizado y fácil de entender.
+          Sube una clase, reunión o entrevista, y obtén un resumen profesional en segundos.
         </p>
+        <EmailForm />
+
       </section>
 
-      <div className={styles.imagePlaceholder}>
-        <span className={styles.imageText}>[Imagen del producto aquí]</span>
-      </div>
+      {/* CÓMO FUNCIONA */}
+      <section className={styles.stepsSection}>
+        <h2 className={styles.sectionTitle}>¿Cómo funciona?</h2>
+  <h2 className={styles.sectionTitle}>🎬 Prueba cómo funciona Audify</h2>
+  <SimulacionDemo />
 
-      <div className={styles.banner}>
-        🚧 Proyecto en construcción 🚧 ¡Lanzamiento pronto!
-      </div>
-
-      <EmailForm />
-
-      <section>
-        <h2 className={styles.sectionTitle}>Beneficios clave</h2>
-        <div className={styles.featuresGrid}>
-          <div>
-            <h3 className={styles.featureTitle}>🎯 Resúmenes precisos</h3>
-            <p className={styles.description}>
-              Aprovecha inteligencia artificial para obtener resúmenes claros y bien estructurados.
-            </p>
-          </div>
-          <div>
-            <h3 className={styles.featureTitle}>🔊 Soporte para audio largo</h3>
-            <p className={styles.description}>
-              Procesa grabaciones extensas sin límites ridículos de tiempo.
-            </p>
-          </div>
-          <div>
-            <h3 className={styles.featureTitle}>🔒 Privacidad garantizada</h3>
-            <p className={styles.description}>
-              Tus audios no se comparten. Solo tú accedes a tus archivos y resúmenes.
-            </p>
-          </div>
-        </div>
       </section>
 
-      <section>
-        <h2 className={styles.sectionTitle}>Planes</h2>
-        <div className={styles.pricingGrid}>
-          <div className={styles.pricingCard}>
+      {/* CASOS DE USO */}
+<section className={styles.paraQuien}>
+  <h2 className={styles.sectionTitle}>¿Para quién es Audify?</h2>
+  <div className={styles.rolesGrid}>
+    <div className={styles.roleCard}>
+      <FontAwesomeIcon icon={faGraduationCap} className={styles.roleIcon} />
+      <div className={styles.roleTitle}>Estudiantes</div>
+      <div className={styles.roleText}>
+        Convierte tus clases en resúmenes claros para estudiar mejor.
+      </div>
+    </div>
+    <div className={styles.roleCard}>
+      <FontAwesomeIcon icon={faBriefcase} className={styles.roleIcon} />
+      <div className={styles.roleTitle}>Profesionales</div>
+      <div className={styles.roleText}>
+        Actas automáticas de reuniones y llamadas importantes.
+      </div>
+    </div>
+    <div className={styles.roleCard}>
+      <FontAwesomeIcon icon={faMicrophone} className={styles.roleIcon} />
+      <div className={styles.roleTitle}>Entrevistadores</div>
+      <div className={styles.roleText}>
+        Transcribe entrevistas y genera insights fácilmente.
+      </div>
+    </div>
+    <div className={styles.roleCard}>
+      <FontAwesomeIcon icon={faChalkboardTeacher} className={styles.roleIcon} />
+      <div className={styles.roleTitle}>Docentes / Coaches</div>
+      <div className={styles.roleText}>
+        Genera materiales y resúmenes de tus sesiones grabadas.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+      {/* PLANES */}
+      <section className={styles.pricingSection}>
+        <h2 className={styles.sectionTitle}>Planes disponibles</h2>
+        <div className={styles.planList}>
+          <div className={styles.planBox}>
             <h3>Gratuito</h3>
+            <p>Hasta 3 audios por mes</p>
             <p className={styles.price}>$0 / mes</p>
-            <p className={styles.description}>Hasta 3 audios por mes.</p>
           </div>
-          <div className={`${styles.pricingCard} ${styles.highlight}`}>
+          <div className={`${styles.planBox} ${styles.planHighlight}`}>
             <h3>Pro</h3>
+            <p>Hasta 50 audios por mes</p>
             <p className={styles.price}>$25 / mes</p>
-            <p className={styles.description}>Hasta 50 audios por mes.</p>
           </div>
-          <div className={styles.pricingCard}>
+          <div className={styles.planBox}>
             <h3>SuperPro</h3>
+            <p>Hasta 200 audios por mes</p>
             <p className={styles.price}>$79 / mes</p>
-            <p className={styles.description}>Hasta 200 audios por mes.</p>
           </div>
         </div>
+        <p className={styles.note}>🎁 Descuento especial para los primeros suscriptores</p>
       </section>
 
-      <section>
+      {/* FAQ */}
+      <section className={styles.faqSection}>
         <h2 className={styles.sectionTitle}>Preguntas frecuentes</h2>
-        <div className={styles.featuresGrid}>
-          <div>
-            <h4 className={styles.question}>¿Necesito una cuenta para usar Audify?</h4>
-            <p className={styles.answer}>No. Puedes probar sin registrarte. Solo necesitas subir tu audio.</p>
+        <div className={styles.faqList}>
+          <div className={styles.faqItem}>
+            <strong>¿Qué tipos de audio puedo subir?</strong>
+            <p>MP3, WAV, M4A y otros formatos comunes.</p>
           </div>
-          <div>
-            <h4 className={styles.question}>¿Puedo usarlo en móvil?</h4>
-            <p className={styles.answer}>Sí. Está diseñado para funcionar perfectamente en dispositivos móviles.</p>
+          <div className={styles.faqItem}>
+            <strong>¿Cuánto tarda el procesamiento?</strong>
+            <p>Entre 10 segundos y 2 minutos según la duración.</p>
           </div>
-          <div>
-            <h4 className={styles.question}>¿Mis archivos son privados?</h4>
-            <p className={styles.answer}>
-              Absolutamente. Nadie más puede ver o acceder a tus grabaciones o resúmenes.
-            </p>
+          <div className={styles.faqItem}>
+            <strong>¿Puedo editar el resumen?</strong>
+            <p>Sí. Puedes ajustarlo visualmente antes de guardarlo.</p>
+          </div>
+          <div className={styles.faqItem}>
+            <strong>¿Cuándo estará disponible?</strong>
+            <p>En las próximas semanas. Suscríbete para enterarte primero.</p>
           </div>
         </div>
       </section>
 
+      {/* FOOTER */}
       <footer className={styles.footer}>
         &copy; {new Date().getFullYear()} Audify. Todos los derechos reservados.
       </footer>
