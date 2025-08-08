@@ -1,95 +1,116 @@
+// src/app/page.tsx
 import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "./Home.module.css";
+import EmailForm from "./components/EmailForm";
+
+export const metadata = {
+  title: 'Audify: Convierte audios en resúmenes claros',
+  description: 'Sube grabaciones de reuniones, clases o entrevistas y obtén un resumen preciso, organizado y fácil de entender.',
+  keywords: ['Audify', 'resúmenes de audio', 'IA', 'entrevistas', 'grabaciones', 'transcripción'],
+  robots: 'index, follow',
+  openGraph: {
+    title: 'Audify: Convierte audios en resúmenes claros',
+    description: 'Convierte tus grabaciones en textos claros y estructurados usando IA.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Audify resumen de audios'
+      }
+    ],
+    type: 'website'
+  }
+};
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className={styles.main}>
+      <section className={styles.hero}>
+        <h1 className={styles.title}>Audify: Convierte audios en resúmenes claros</h1>
+        <p className={styles.subtitle}>
+          Sube grabaciones de reuniones, clases o entrevistas y obtén un resumen preciso, organizado y fácil de entender.
+        </p>
+      </section>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+      <div className={styles.imagePlaceholder}>
+        <span className={styles.imageText}>[Imagen del producto aquí]</span>
+      </div>
+
+      <div className={styles.banner}>
+        🚧 Proyecto en construcción 🚧 ¡Lanzamiento pronto!
+      </div>
+
+      <EmailForm />
+
+      <section>
+        <h2 className={styles.sectionTitle}>Beneficios clave</h2>
+        <div className={styles.featuresGrid}>
+          <div>
+            <h3 className={styles.featureTitle}>🎯 Resúmenes precisos</h3>
+            <p className={styles.description}>
+              Aprovecha inteligencia artificial para obtener resúmenes claros y bien estructurados.
+            </p>
+          </div>
+          <div>
+            <h3 className={styles.featureTitle}>🔊 Soporte para audio largo</h3>
+            <p className={styles.description}>
+              Procesa grabaciones extensas sin límites ridículos de tiempo.
+            </p>
+          </div>
+          <div>
+            <h3 className={styles.featureTitle}>🔒 Privacidad garantizada</h3>
+            <p className={styles.description}>
+              Tus audios no se comparten. Solo tú accedes a tus archivos y resúmenes.
+            </p>
+          </div>
         </div>
-      </main>
+      </section>
+
+      <section>
+        <h2 className={styles.sectionTitle}>Planes</h2>
+        <div className={styles.pricingGrid}>
+          <div className={styles.pricingCard}>
+            <h3>Gratuito</h3>
+            <p className={styles.price}>$0 / mes</p>
+            <p className={styles.description}>Hasta 3 audios por mes.</p>
+          </div>
+          <div className={`${styles.pricingCard} ${styles.highlight}`}>
+            <h3>Pro</h3>
+            <p className={styles.price}>$25 / mes</p>
+            <p className={styles.description}>Hasta 50 audios por mes.</p>
+          </div>
+          <div className={styles.pricingCard}>
+            <h3>SuperPro</h3>
+            <p className={styles.price}>$79 / mes</p>
+            <p className={styles.description}>Hasta 200 audios por mes.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 className={styles.sectionTitle}>Preguntas frecuentes</h2>
+        <div className={styles.featuresGrid}>
+          <div>
+            <h4 className={styles.question}>¿Necesito una cuenta para usar Audify?</h4>
+            <p className={styles.answer}>No. Puedes probar sin registrarte. Solo necesitas subir tu audio.</p>
+          </div>
+          <div>
+            <h4 className={styles.question}>¿Puedo usarlo en móvil?</h4>
+            <p className={styles.answer}>Sí. Está diseñado para funcionar perfectamente en dispositivos móviles.</p>
+          </div>
+          <div>
+            <h4 className={styles.question}>¿Mis archivos son privados?</h4>
+            <p className={styles.answer}>
+              Absolutamente. Nadie más puede ver o acceder a tus grabaciones o resúmenes.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        &copy; {new Date().getFullYear()} Audify. Todos los derechos reservados.
       </footer>
-    </div>
+    </main>
   );
 }
